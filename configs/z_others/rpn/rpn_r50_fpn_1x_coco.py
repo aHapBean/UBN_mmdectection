@@ -3,6 +3,28 @@ _base_ = [
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
 
+# For training set
+# val_dataloader = dict(
+#     dataset=dict(
+#         ann_file='data/coco/annotations/instances_train2017.json',
+#         data_prefix=dict(img='val2017/')))
+# val_dataloader = dict(
+#     _delete_=True,
+#     # type='DumpProposals',
+#     output_dir='data/coco/proposals/',
+#     proposals_file='rpn_r50_fpn_1x_train2017.pkl')
+# test_dataloader = val_dataloader
+# test_evaluator = val_dataloader
+
+# For validation set
+# val_dataloader = dict(
+#   _delete_=True,
+#   type='DumpProposals',
+#   output_dir='data/coco/proposals/',
+#   proposals_file='rpn_r50_fpn_1x_val2017.pkl')
+
+
+# 原始内容只有下面两行
 val_evaluator = dict(metric='proposal_fast')
 test_evaluator = val_evaluator
 

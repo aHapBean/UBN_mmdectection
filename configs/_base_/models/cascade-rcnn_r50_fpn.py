@@ -1,4 +1,6 @@
 # model settings
+
+# bs是256或者512的
 model = dict(
     type='CascadeRCNN',
     data_preprocessor=dict(

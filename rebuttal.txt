@@ -1,0 +1,22 @@
+norm.py
+
+cfg_:  {'requires_grad': True, 'eps': 1e-05}
+norm_layer:  <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+不传入requires_grad可以
+layer.weight.requires_grad:  True
+
+
+Q: 那为什么报错呢：layer = norm_layer(num_features, **cfg_)
+TypeError: __init__() got an unexpected keyword argument 'requires_grad'
+
+ChatGPT
+在你的代码中，报错是因为 nn.BatchNorm2d 不接受 requires_grad 这个关键字参数。Batch normalization层的权重参数通常是可以学习的，而不需要显式地设置 requires_grad。
+
+如果你希望冻结或禁用 Batch Normalization 层的梯度，你应该在创建层后手动设置相应的参数的 requires_grad。例如：
+
+python
+Copy code
+layer = norm_layer(num_features, **cfg_)
+layer.weight.requires_grad = False
+layer.bias.requires_grad = False
+在这里，layer.weight 和 layer.bias 是 Batch Normalization 层的权重和偏置，通过将它们的 requires_grad 设置为 False，你可以禁用它们的梯度。请注意，这样的设置可能需要根据你的具体需求进行调整。
