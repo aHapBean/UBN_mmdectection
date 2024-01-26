@@ -390,7 +390,7 @@ class ResNet(BaseModule):
                  zero_init_residual=True,
                  pretrained=None,
                  init_cfg=None):
-        super(ResNet, self).__init__(init_cfg)
+        super(ResNet, self).__init__(init_cfg)      # NOTE 初始化 self.init_cfg ???
         self.zero_init_residual = zero_init_residual
         if depth not in self.arch_settings:
             raise KeyError(f'invalid depth {depth} for resnet')
@@ -483,7 +483,7 @@ class ResNet(BaseModule):
                 plugins=stage_plugins,
                 init_cfg=block_init_cfg)
             self.inplanes = planes * self.block.expansion
-            layer_name = f'layer{i + 1}'
+            layer_name = f'layer{i + 1}'            # 
             self.add_module(layer_name, res_layer)
             self.res_layers.append(layer_name)
 
