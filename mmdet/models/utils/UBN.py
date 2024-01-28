@@ -26,7 +26,7 @@ def get_sub_cos(x1,x2):
 
 class UnifiedBatchNorm2d(nn.BatchNorm2d):
     def __init__(self, num_features, eps=1e-5, momentum=0.1, affine=True,
-                 track_running_stats=True, bound=0.2, k=3):  # FIXME here
+                 track_running_stats=True, bound=0.15, k=3):  # NOTE 0.15
         super(UnifiedBatchNorm2d, self).__init__(
             num_features, eps, momentum, affine, track_running_stats)
         self.num_features = num_features
