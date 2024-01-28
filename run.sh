@@ -37,7 +37,24 @@ mask rcnn
 TODO: 尝试UBN
 no pretrain
 53000 跑8卡 tmux 00(这机子是不是有问题)
-bash ./tools/dist_train.sh ./configs/a_mask_rcnn/mask-rcnn_r50_fpn_1x_coco.py 8
+bash ./tools/dist_train.sh ./configs/a_mask_rcnn/bn_mask-rcnn_r50_fpn_1x_coco.py 8
+
+bash ./tools/dist_train.sh ./configs/a_mask_rcnn/ubn_mask-rcnn_r50_fpn_1x_coco.py 8
+
+
+
+r101: 
+bash ./tools/dist_train.sh ./configs/a_mask_rcnn/bn_mask-rcnn_r101_fpn_1x_coco.py 1
+
+bash ./tools/dist_train.sh ./configs/a_mask_rcnn/ubn_mask-rcnn_r101_fpn_1x_coco.py 1
+
+
+
+
+
+
+
+
 
 不同卡数跑出来的结果会有影响吗？？初步看loss好像2卡也差不多
 

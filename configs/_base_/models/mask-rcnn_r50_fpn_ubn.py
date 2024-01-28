@@ -17,7 +17,7 @@ model = dict(
         norm_cfg=dict(type='UBN', requires_grad=True),
         norm_eval=True,
         style='pytorch',
-        init_cfg=dict(type='Pretrained', checkpoint='/home/zhangxiangdong/mmdetection/checkpoints/ubn.pth') # NOTE
+        init_cfg=dict(type='Pretrained', checkpoint='./checkpoints/ubn.pth') # NOTE
         ),
     neck=dict(
         type='FPN',
